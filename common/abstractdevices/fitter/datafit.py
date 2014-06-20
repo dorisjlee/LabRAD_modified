@@ -16,8 +16,8 @@ class DataFit(object):
             #print self.all_parameters
             for param in self.all_parameters:
                 self.params.add(param)
-            #print self.params
-            #print 'finish set'
+            print self.params
+            print 'finish set'
         for parameter_name in self.all_parameters:
             if parameter_name in self.initial_values:
                 to_fit, auto_guess, initial_guess = self.initial_values[parameter_name]
@@ -28,7 +28,8 @@ class DataFit(object):
                 initial_guess = self.guess(parameter_name)
             self.params[parameter_name].vary = to_fit
             self.params[parameter_name].value = initial_guess
-            #print 'finish set2'
+            print 'finish set2'
+            print self.params
     def setData(self, data):
         r = np.array(data)
         self.dataX = r[:,0]
