@@ -11,7 +11,7 @@ class rabi_flop_time_evolution(object):
     #def __init__(self,eta,nmax=1000):
 	#self.sideband_order = self.param['sideband']()#0 for carrier, 1 for 1st sideband etc
     	self.sideband_order = sideband_order
-        self.eta = eta
+	self.eta = eta
         self.nmax = nmax
         self.rabi_coupling = self.compute_rabi_coupling()
     def compute_rabi_coupling(self):
@@ -47,7 +47,7 @@ class rabi_flop_time_evolution(object):
         
     def compute_evolution_thermal(self, nbar, delta, time_2pi, t, excitation_scaling = 1.):
         '''returns the state evolution for temperature nbar, detuning delta, rabi frequency T_Rabi for times t'''
-        print 'Compute Evolution Thermal'
+        #print 'Compute Evolution Thermal'
         omega = self.rabi_coupling
         ones = np.ones_like(t)
         p_n = md.thermal(nbar, self.nmax)
