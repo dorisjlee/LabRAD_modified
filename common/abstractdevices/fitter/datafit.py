@@ -38,6 +38,7 @@ class DataFit(object):
     def setUserParameters(self, params):
         self.initial_values = params
         self.all_parameters=self.initial_values.keys()
+        
     def residual(self, params, x, data):
         model = self.model(params, x)
         return model - data
@@ -53,7 +54,7 @@ class DataFit(object):
         self.result = lmfit.minimize(self.residual, self.params, args = (self.dataX, self.dataY))
         self.fitAccepted = True
         points = len(self.dataX)
-        fine_grid = np.linspace(self.dataX.min(), self.dataX.max(), 100 * points)
+        fine_grid = np.linspace(self.dataX.min(), self.dataX.max(), 100 * points-1)
         y_values = self.model(self.params, fine_grid)
         return fine_grid, y_values
     

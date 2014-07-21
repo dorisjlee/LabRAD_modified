@@ -14,6 +14,7 @@ class Lorentzian(DataFit):
         return self.guess_dict[param]()
 
     def guess_fwhm(self):
+        print (self.dataX)
         xmax = self.dataX.max()
         xmin = self.dataX.min()
         return (xmax - xmin)/6.0

@@ -1,4 +1,3 @@
-
 import numpy as np
 import pylab as pl
 import os
@@ -76,8 +75,10 @@ class ReadData():
     def get_data(self, time_str, experiment=None, basepath=BASEPATH):
         if experiment == None:
             experiment = self.experiment
-
-        pathname = self.basepath+ '/' + experiment + ".dir/" + self.date + '.dir/' + time_str + '.dir/'
+        #added this on so that it works on my local machine 
+        self.basepath = "/Users/dorislee/Desktop/HaffnerLab/LabRAD/cct/data"
+        # pathname = self.basepath+ '/' + experiment + ".dir/" + self.date + '.dir/' + time_str + '.dir/'
+        pathname = self.basepath+ '/Experiments.dir/' + experiment + ".dir/" + self.date + '.dir/' + time_str + '.dir/'
         for files in os.listdir(pathname):
             if files.endswith("csv"):
                 self.data = np.loadtxt(pathname + files,delimiter=',')

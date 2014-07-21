@@ -12,12 +12,12 @@ from labrad import units as U
 class RabiFlop(DataFit):
     
     def __init__(self):
-        DataFit.__init__(self,raw)
+        DataFit.__init__(self)
         
         self.guess_dict = {'nbar': lambda: 5.0, 'f_rabi': self.guess_f_rabi,
                            'delta': lambda: 0.0, 'delta_fluctuations': lambda: 0.0,
                            'trap_freq': lambda: 1.0, 'sideband': lambda: 0.0,
-                           'nmax': lambda: 1000, 'projection': np.pi/4}
+                           'nmax': lambda: 1000, 'projection': lambda:np.pi/4}
 
         self.all_parameters = self.guess_dict.keys()
 
